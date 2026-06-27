@@ -28,6 +28,15 @@ Users.init({
       allowNull: false,
     },
 
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: 'pending',
+    },
+
+    activationToken: {
+      type: DataTypes.STRING,
+    },
+
     password: {
       type: DataTypes.STRING,
       set(value) {
@@ -36,7 +45,7 @@ Users.init({
     }
   },
   {
-    sequelize: db.sequelize,
+    sequelize: db,
     modelName: 'users',
     tableName: 'users',
     timestamps: true,
