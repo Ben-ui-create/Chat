@@ -3,7 +3,6 @@ import {DataTypes, Model} from 'sequelize';
 import Users from './Users.js';
 
 import db from '../clients/db.sequelize.js';
-import sequelize from "../clients/db.sequelize.js";
 
 class Messages extends Model {
 
