@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Account</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 420px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .code {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .code input {
+            width: 55px;
+            height: 60px;
+            text-align: center;
+            font-size: 28px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .code input:focus {
+            border-color: #4f46e5;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <h2>Email Verification</h2>
+
+    <p>
+        Enter the 6-digit verification code sent to your email.
+    </p>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="error"><%= error %></div>
+    <% } %>
+
+    <form id="activateForm">
+
+        <div class="code">
+            <input type="text" maxlength="1" class="digit">
+            <input type="text" maxlength="1" class="digit">
+            <input type="text" maxlength="1" class="digit">
+            <input type="text" maxlength="1" class="digit">
+            <input type="text" maxlength="1" class="digit">
+            <input type="text" maxlength="1" class="digit">
+        </div>
+
+        <input type="hidden" name="activationToken" id="activationToken">
+
+        <button type="submit">
+            Verify
+        </button>
+
+    </form>
+
+</div>
+
+<script src="/js/activate.js"></script>
+
+</body>
+</html>

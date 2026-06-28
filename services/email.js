@@ -5,11 +5,12 @@ import _ from "lodash";
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 587,
+  port: 465,
+  secure: true,
   auth: {
     user: 'beniksargsyan349@gmail.com',
-    pass: 'rtrfhvfpmxtdognl'
-  }
+    pass: 'rtrfhvfpmxtdognl',
+  },
 });
 
 export default async function ({ to, subject, template, data, attachments = null }) {
@@ -18,7 +19,7 @@ export default async function ({ to, subject, template, data, attachments = null
     const html = await ejs.renderFile(filePath, { data });
 
     const payload = {
-      from: '"Example Team" <team@example.com>',
+      from: '"Chat" <beniksargsyan349@gmail.com>',
       to,
       subject,
       html,

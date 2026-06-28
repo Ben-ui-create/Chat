@@ -37,6 +37,10 @@ Users.init({
       type: DataTypes.STRING,
     },
 
+    resetPasswordToken: {
+      type: DataTypes.STRING,
+    },
+
     password: {
       type: DataTypes.STRING,
       set(value) {
